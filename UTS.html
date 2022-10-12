@@ -413,25 +413,116 @@ title="Print to PDF"
 <h2>1. Membuat Analisa Clustring dengan K-Means<a class="headerlink" href="#membuat-analisa-clustring-dengan-k-means" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !git clone --depth=1 https://github.com/twintproject/twint.git</span>
-<span class="c1"># %cd twint</span>
-<span class="c1"># !pip3 install . -r requirements.txt</span>
-<span class="c1"># !pip install twint</span>
-<span class="c1"># !pip install aiohttp==3.7.0</span>
-<span class="c1"># !pip install nest_asyncio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/twintproject/twint.git
+<span class="o">%</span><span class="k">cd</span> twint
+<span class="o">!</span>pip3 install . -r requirements.txt
+<span class="o">!</span>pip install twint
+<span class="o">!</span>pip install <span class="nv">aiohttp</span><span class="o">==</span><span class="m">3</span>.7.0
+<span class="o">!</span>pip install nest_asyncio
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\M Nur Fauzan W\OneDrive\Desktop\content\webmining\twint
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fatal: destination path &#39;twint&#39; already exists and is not an empty directory.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing c:\users\m nur fauzan w\onedrive\desktop\content\webmining\twint
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status &#39;error&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  error: subprocess-exited-with-error
+  
+  python setup.py egg_info did not run successfully.
+  exit code: 1
+  
+  [6 lines of output]
+  Traceback (most recent call last):
+    File &quot;&lt;string&gt;&quot;, line 2, in &lt;module&gt;
+    File &quot;&lt;pip-setuptools-caller&gt;&quot;, line 34, in &lt;module&gt;
+    File &quot;C:\Users\M Nur Fauzan W\OneDrive\Desktop\content\webmining\twint\setup.py&quot;, line 30, in &lt;module&gt;
+      with open(os.path.join(here, NAME, &#39;__version__.py&#39;)) as f:
+  FileNotFoundError: [Errno 2] No such file or directory: &#39;C:\\Users\\M Nur Fauzan W\\OneDrive\\Desktop\\content\\webmining\\twint\\wint\\__version__.py&#39;
+  [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
+
+Encountered error while generating package metadata.
+
+See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: twint in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (2.1.21)
+Requirement already satisfied: pysocks in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (1.7.1)
+Requirement already satisfied: aiohttp-socks in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (0.4.1)
+Requirement already satisfied: schedule in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (1.1.0)
+Requirement already satisfied: geopy in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (2.2.0)
+Requirement already satisfied: elasticsearch in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (8.4.3)
+Requirement already satisfied: googletransx in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (2.4.2)
+Requirement already satisfied: beautifulsoup4 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (4.11.1)
+Requirement already satisfied: aiohttp in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (3.7.0)
+Requirement already satisfied: pandas in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (1.3.5)
+Requirement already satisfied: dataclasses in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (0.6)
+Requirement already satisfied: aiodns in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (3.0.0)
+Requirement already satisfied: cchardet in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (2.1.7)
+Requirement already satisfied: fake-useragent in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from twint) (0.1.11)
+Requirement already satisfied: pycares&gt;=4.0.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from aiodns-&gt;twint) (4.2.2)
+Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from aiohttp-&gt;twint) (3.0.4)
+Requirement already satisfied: attrs&gt;=17.3.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from aiohttp-&gt;twint) (21.4.0)
+Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from aiohttp-&gt;twint) (3.0.1)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from aiohttp-&gt;twint) (6.0.2)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from aiohttp-&gt;twint) (1.8.1)
+Requirement already satisfied: soupsieve&gt;1.2 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from beautifulsoup4-&gt;twint) (2.3.2.post1)
+Requirement already satisfied: elastic-transport&lt;9,&gt;=8 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from elasticsearch-&gt;twint) (8.4.0)
+Requirement already satisfied: geographiclib&lt;2,&gt;=1.49 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from geopy-&gt;twint) (1.52)
+Requirement already satisfied: requests in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from googletransx-&gt;twint) (2.28.1)
+Requirement already satisfied: numpy&gt;=1.17.3 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from pandas-&gt;twint) (1.21.4)
+Requirement already satisfied: python-dateutil&gt;=2.7.3 in c:\users\m nur fauzan w\appdata\roaming\python\python39\site-packages (from pandas-&gt;twint) (2.8.2)
+Requirement already satisfied: pytz&gt;=2017.3 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from pandas-&gt;twint) (2021.3)
+Requirement already satisfied: urllib3&lt;2,&gt;=1.26.2 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;twint) (1.26.12)
+Requirement already satisfied: certifi in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;twint) (2021.5.30)
+Requirement already satisfied: cffi&gt;=1.5.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;twint) (1.15.1)
+Requirement already satisfied: six&gt;=1.5 in c:\users\m nur fauzan w\appdata\roaming\python\python39\site-packages (from python-dateutil&gt;=2.7.3-&gt;pandas-&gt;twint) (1.16.0)
+Requirement already satisfied: idna&gt;=2.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;twint) (3.4)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from requests-&gt;googletransx-&gt;twint) (2.1.1)
+Requirement already satisfied: pycparser in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;twint) (2.21)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: aiohttp==3.7.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (3.7.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from aiohttp==3.7.0) (3.0.4)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from aiohttp==3.7.0) (1.8.1)
+Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from aiohttp==3.7.0) (3.0.1)
+Requirement already satisfied: attrs&gt;=17.3.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from aiohttp==3.7.0) (21.4.0)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from aiohttp==3.7.0) (6.0.2)
+Requirement already satisfied: idna&gt;=2.0 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (3.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nest_asyncio in c:\users\m nur fauzan w\appdata\roaming\python\python39\site-packages (1.5.4)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">twint</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> ../..
+<span class="kn">import</span> <span class="nn">twint</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">!</span>pip install nltk
 <span class="kn">import</span> <span class="nn">nltk</span>
-<span class="c1"># nltk.download(&#39;punkt&#39;)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">string</span>
+<span class="o">!</span>pip install Sastrawi
 <span class="kn">from</span> <span class="nn">Sastrawi.Stemmer.StemmerFactory</span> <span class="kn">import</span> <span class="n">StemmerFactory</span>
 <span class="kn">import</span> <span class="nn">nest_asyncio</span>
 <span class="n">nest_asyncio</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
@@ -444,6 +535,19 @@ title="Print to PDF"
 <span class="c1"># c.Custom[&quot;tweet&quot;] = [&quot;tweet&quot;]</span>
 <span class="c1"># c.Output = &quot;datatweet.csv&quot;</span>
 <span class="c1"># twint.run.Search(c)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\M Nur Fauzan W\OneDrive\Desktop\content
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nltk in c:\users\m nur fauzan w\appdata\roaming\python\python39\site-packages (3.7)
+Requirement already satisfied: tqdm in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from nltk) (4.60.0)
+Requirement already satisfied: click in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from nltk) (8.0.1)
+Requirement already satisfied: joblib in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from nltk) (1.0.1)
+Requirement already satisfied: regex&gt;=2021.8.3 in c:\users\m nur fauzan w\appdata\local\programs\python\python39\lib\site-packages (from nltk) (2022.9.13)
+Requirement already satisfied: colorama in c:\users\m nur fauzan w\appdata\roaming\python\python39\site-packages (from click-&gt;nltk) (0.4.4)
 </pre></div>
 </div>
 </div>
@@ -776,130 +880,6 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;tweet&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;preprocessing_tweet.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="ne">C</span>:\Users\MNURFA~1\AppData\Local\Temp/ipykernel_13324/155829341.py in &lt;module&gt;
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;tweet&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;preprocessing_tweet.csv&#39;</span><span class="p">)</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\series.py</span> in <span class="ni">apply</span><span class="nt">(self, func, convert_dtype, args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4355</span>         <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
-<span class="g g-Whitespace">   </span><span class="mi">4356</span>         <span class="sd">&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">4357</span><span class="sd">         return SeriesApply(self, func, convert_dtype, args, kwargs).apply()</span>
-<span class="g g-Whitespace">   </span><span class="mi">4358</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">4359</span><span class="sd">     def _reduce(</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\apply.py</span> in <span class="ni">apply</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1041</span><span class="sd">             return self.apply_str()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1042</span><span class="sd"> </span>
-<span class="ne">-&gt; </span><span class="mi">1043</span><span class="sd">         return self.apply_standard()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1044</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1045</span><span class="sd">     def agg(self):</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\apply.py</span> in <span class="ni">apply_standard</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1096</span><span class="sd">                 # List[Union[Callable[..., Any], str]]]]]&quot;; expected</span>
-<span class="g g-Whitespace">   </span><span class="mi">1097</span><span class="sd">                 # &quot;Callable[[Any], Any]&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1098</span><span class="sd">                 mapped = lib.map_infer(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1099</span><span class="sd">                     values,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1100</span><span class="sd">                     f,  # type: ignore[arg-type]</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\_libs\lib.pyx</span> in <span class="ni">pandas._libs.lib.map_infer</span><span class="nt">()</span>
-
-<span class="nn">C:\Users\MNURFA~1\AppData\Local\Temp/ipykernel_13324/2600347526.py</span> in <span class="ni">preprocessing</span><span class="nt">(text)</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span><span class="sd">     #stemming</span>
-<span class="ne">---&gt; </span><span class="mi">41</span><span class="sd">     text = stemming(text)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span><span class="sd">     #remove empty string</span>
-
-<span class="nn">C:\Users\MNURFA~1\AppData\Local\Temp/ipykernel_13324/2600347526.py</span> in <span class="ni">stemming</span><span class="nt">(text)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span><span class="sd">     factory = StemmerFactory()</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span><span class="sd">     stemmer = factory.create_stemmer()</span>
-<span class="ne">---&gt; </span><span class="mi">12</span><span class="sd">     result = [stemmer.stem(word) for word in text]</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span><span class="sd">     return result</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="sd"> </span>
-
-<span class="nn">C:\Users\MNURFA~1\AppData\Local\Temp/ipykernel_13324/2600347526.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span><span class="sd">     factory = StemmerFactory()</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span><span class="sd">     stemmer = factory.create_stemmer()</span>
-<span class="ne">---&gt; </span><span class="mi">12</span><span class="sd">     result = [stemmer.stem(word) for word in text]</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span><span class="sd">     return result</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="sd"> </span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\Sastrawi\Stemmer\CachedStemmer.py</span> in <span class="ni">stem</span><span class="nt">(self, text)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span><span class="sd">                 stems.append(self.cache.get(word))</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span><span class="sd">             else:</span>
-<span class="ne">---&gt; </span><span class="mi">20</span><span class="sd">                 stem = self.delegatedStemmer.stem(word)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span><span class="sd">                 self.cache.set(word, stem)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span><span class="sd">                 stems.append(stem)</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\Sastrawi\Stemmer\Stemmer.py</span> in <span class="ni">stem</span><span class="nt">(self, text)</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span><span class="sd">         for word in words:</span>
-<span class="ne">---&gt; </span><span class="mi">27</span><span class="sd">             stems.append(self.stem_word(word))</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span><span class="sd">         return &#39; &#39;.join(stems)</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\Sastrawi\Stemmer\Stemmer.py</span> in <span class="ni">stem_word</span><span class="nt">(self, word)</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span><span class="sd">             return self.stem_plural_word(word)</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span><span class="sd">         else:</span>
-<span class="ne">---&gt; </span><span class="mi">36</span><span class="sd">             return self.stem_singular_word(word)</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span><span class="sd">     def is_plural(self, word):</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\Sastrawi\Stemmer\Stemmer.py</span> in <span class="ni">stem_singular_word</span><span class="nt">(self, word)</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span><span class="sd">         &quot;&quot;&quot;</span><span class="n">Stem</span> <span class="n">a</span> <span class="n">singular</span> <span class="n">word</span> <span class="n">to</span> <span class="n">its</span> <span class="n">common</span> <span class="n">stem</span> <span class="n">form</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="s2">         context = Context(word, self.dictionary, self.visitor_provider)</span>
-<span class="ne">---&gt; </span><span class="mi">84</span><span class="s2">         context.execute()</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span><span class="s2">         return context.result</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\Sastrawi\Stemmer\Context\Context.py</span> in <span class="ni">execute</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span><span class="s2">         #step 1 - 5</span>
-<span class="ne">---&gt; </span><span class="mi">37</span><span class="s2">         self.start_stemming_process()</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span><span class="s2">         #step 6</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\Sastrawi\Stemmer\Context\Context.py</span> in <span class="ni">start_stemming_process</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="s2">         if csPrecedenceAdjustmentSpecification.is_satisfied_by(self.original_word):</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="s2">             #step 4, 5</span>
-<span class="ne">---&gt; </span><span class="mi">60</span><span class="s2">             self.remove_prefixes()</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="s2">             if self.dictionary.contains(self.current_word):</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="s2">                 return</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\Sastrawi\Stemmer\Context\Context.py</span> in <span class="ni">remove_prefixes</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span><span class="s2">     def remove_prefixes(self):</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span><span class="s2">         for i in range(3):</span>
-<span class="ne">---&gt; </span><span class="mi">89</span><span class="s2">             self.accept_prefix_visitors(self.prefix_pisitors)</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span><span class="s2">             if self.dictionary.contains(self.current_word):</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span><span class="s2">                 return</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\Sastrawi\Stemmer\Context\Context.py</span> in <span class="ni">accept_prefix_visitors</span><span class="nt">(self, visitors)</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span><span class="s2">         removalCount = len(self.removals)</span>
-<span class="g g-Whitespace">    </span><span class="mi">109</span><span class="s2">         for visitor in visitors:</span>
-<span class="ne">--&gt; </span><span class="mi">110</span><span class="s2">             self.accept(visitor)</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span><span class="s2">             if self.dictionary.contains(self.current_word):</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span><span class="s2">                 return self.current_word</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\Sastrawi\Stemmer\Context\Context.py</span> in <span class="ni">accept</span><span class="nt">(self, visitor)</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span><span class="s2">     def accept(self, visitor):</span>
-<span class="ne">---&gt; </span><span class="mi">97</span><span class="s2">         visitor.visit(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">99</span><span class="s2">     def accept_visitors(self, visitors):</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\site-packages\Sastrawi\Stemmer\Context\Visitor\AbstractDisambiguatePrefixRule.py</span> in <span class="ni">visit</span><span class="nt">(self, context)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span><span class="s2">         result = None</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span><span class="s2"> </span>
-<span class="ne">---&gt; </span><span class="mi">13</span><span class="s2">         for disambiguator in self.disambiguators:</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="s2">             result = disambiguator.disambiguate(context.current_word)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="s2">             if context.dictionary.contains(result):</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>

@@ -32,6 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-data['tweet'].apply(preprocessing).to_csv('preprocessing_tweet.csv')
+['%cd ../..', 'import twint', 'import pandas as pd', 'import re', 'import numpy as np']
+...
+['# c.Limit = 60', '# c.Store_csv = True', '# c.Custom["tweet"] = ["tweet"]', '# c.Output = "datatweet.csv"', '# twint.run.Search(c)']
 -------------------
 
