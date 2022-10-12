@@ -31,8 +31,8 @@ get_ipython().run_line_magic('cd', 'twint')
 get_ipython().system('pip3 install . -r requirements.txt')
 get_ipython().system('pip install twint')
 get_ipython().system('pip install aiohttp==3.7.0')
-import twint
 get_ipython().system('pip install nest_asyncio')
+import twint
 import nest_asyncio
 nest_asyncio.apply()
 

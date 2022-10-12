@@ -8,6 +8,12 @@
 
 import requests
 import pandas as pd
+import pandas as pd
+import re
+import numpy as np
+import nltk
+import string
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from bs4 import BeautifulSoup as bs
 URL = "https://news.detik.com/berita/d-6334129/5-fakta-baru-tragedi-kanjuruhan-6-tersangka-hingga-soal-gas-air-mata?single=1"
 resp = requests.get(URL)
@@ -24,6 +30,19 @@ for i,paragraf in enumerate(elements):
             continue
         else:
             split_kalimat.append(kalimat)
+def remove_stopwords(text):
+    with open('stopwords.txt') as f:
+        stopwords = f.readlines()
+        stopwords = [x.strip() for x in stopwords]
+    text = nltk.word_tokenize(text)
+    text = [word for word in text if word not in stopwords]              
+    return text
+
+def stemming(text):
+    factory = StemmerFactory()
+    stemmer = factory.create_stemmer()
+    result = [stemmer.stem(word) for word in text]
+    return result
 
 def preprocessing(kalimat):
     import re
@@ -36,9 +55,8 @@ def preprocessing(kalimat):
         kata = ''.join(re.sub("[0-9]","",kata))
         if len(kata) > 0:
             res_kata.append(kata)
-    text = list(res_kata)
     # print(text)
-    return text
+    return res_kata
 
 df = pd.DataFrame(split_kalimat,columns=['kata'])
 df['kata'].apply(preprocessing).to_csv("preprocessing_summary.csv")
@@ -53,44 +71,58 @@ data
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
-dataTextPre = pd.read_csv('preprocessing.csv')
+dataTextPre = pd.read_csv('preprocessing_summary.csv')
 vectorizer = CountVectorizer(min_df=1)
 bag = vectorizer.fit_transform(dataTextPre['kata'])
 
 
-# In[169]:
+# In[3]:
 
 
 matrik_vsm=bag.toarray()
 matrik_vsm.shape
 
 
-# In[170]:
+# In[4]:
 
 
 matrik_vsm[0]
 
 
-# In[171]:
+# In[5]:
 
 
 a=vectorizer.get_feature_names_out()
 
 
-# In[172]:
+# In[6]:
 
 
 dataTF =pd.DataFrame(data=matrik_vsm,index=list(range(1, len(matrik_vsm[:,1])+1, )),columns=[a])
 dataTF
 
 
-# In[175]:
+# In[ ]:
 
 
-data.head()
 
 
-# In[212]:
+
+# In[7]:
+
+
+import matplotlib.pyplot as plt
+import networkx as nx
+from nltk.probability import DictionaryConditionalProbDist
+data = pd.read_csv("preprocessing_summary.csv")
+G = nx.DiGraph()
+G = nx.from_pandas_edgelist(data,edge_key='',edge_attr='kata',create_using=nx.Graph())
+nx.draw(G)
+plt.show()
+# dataTF.
+
+
+# In[26]:
 
 
 from nltk.tokenize import word_tokenize
@@ -103,7 +135,7 @@ tokens.plot(30,cumulative=False)
 plt.show()
 
 
-# In[202]:
+# In[27]:
 
 
 #preprocessing
@@ -123,7 +155,7 @@ vect_text=vect.fit_transform(data['kata'])
 lsa_top=lsa_model.fit_transform(vect_text)
 
 
-# In[205]:
+# In[28]:
 
 
 print(lsa_top)
@@ -133,7 +165,7 @@ print(lsa_top)
 # data_plot.sort_values(ascending=False).plot.bar(figsize=(50, 20))
 
 
-# In[ ]:
+# In[29]:
 
 
 label = pd.read_excel('/content/drive/MyDrive/webmining/TugasWebmining/twint/dataset.xlsx')
@@ -141,7 +173,7 @@ dj = pd.concat([dataTF.reset_index(), label["label"]], axis=1)
 dj
 
 
-# In[67]:
+# In[ ]:
 
 
 from sklearn.model_selection import train_test_split
@@ -151,13 +183,13 @@ X_train,X_test,y_train,y_test=train_test_split(dataTF,
     random_state=0)
 
 
-# In[70]:
+# In[ ]:
 
 
 y_train
 
 
-# In[69]:
+# In[ ]:
 
 
 from sklearn.feature_selection import mutual_info_classif
