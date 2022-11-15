@@ -48,7 +48,7 @@ plt.show()
 The above exception was the direct cause of the following exception:
 
 [1;31mKeyError[0m                                  Traceback (most recent call last)
-[1;32mC:\Users\MNURFA~1\AppData\Local\Temp/ipykernel_4564/2516493177.py[0m in [0;36m<module>[1;34m[0m
+[1;32mC:\Users\MNURFA~1\AppData\Local\Temp/ipykernel_20392/2516493177.py[0m in [0;36m<module>[1;34m[0m
 [0;32m      4[0m [0mdata[0m [1;33m=[0m [0mpd[0m[1;33m.[0m[0mread_csv[0m[1;33m([0m[1;34m"preprocessing_summary.csv"[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
 [0;32m      5[0m [0mG[0m [1;33m=[0m [0mnx[0m[1;33m.[0m[0mDiGraph[0m[1;33m([0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
 [1;32m----> 6[1;33m [0mG[0m [1;33m=[0m [0mnx[0m[1;33m.[0m[0mfrom_pandas_edgelist[0m[1;33m([0m[0mdata[0m[1;33m,[0m[0medge_key[0m[1;33m=[0m[1;34m''[0m[1;33m,[0m[0medge_attr[0m[1;33m=[0m[1;34m'kata'[0m[1;33m,[0m[0mcreate_using[0m[1;33m=[0m[0mnx[0m[1;33m.[0m[0mGraph[0m[1;33m([0m[1;33m)[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
