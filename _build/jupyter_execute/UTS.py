@@ -9,24 +9,27 @@
 # In[1]:
 
 
-# !git clone --depth=1 https://github.com/twintproject/twint.git
-# %cd twint
-# !pip3 install . -r requirements.txt
-# !pip install twint
-# !pip install aiohttp==3.7.0
-# !pip install nest_asyncio
+get_ipython().system('git clone --depth=1 https://github.com/twintproject/twint.git')
+get_ipython().run_line_magic('cd', 'twint')
+get_ipython().system('pip3 install . -r requirements.txt')
+get_ipython().system('pip install twint')
+get_ipython().system('pip install aiohttp==3.7.0')
+get_ipython().system('pip install nest_asyncio')
 
 
 # In[2]:
 
 
+get_ipython().run_line_magic('cd', '../..')
 import twint
 import pandas as pd
 import re
 import numpy as np
+get_ipython().system('pip install nltk')
 import nltk
-# nltk.download('punkt')
+nltk.download('punkt')
 import string
+get_ipython().system('pip install Sastrawi')
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 import nest_asyncio
 nest_asyncio.apply()
@@ -41,14 +44,14 @@ nest_asyncio.apply()
 # twint.run.Search(c)
 
 
-# In[3]:
+# In[24]:
 
 
 data = pd.read_csv('datatweet.csv')
 data
 
 
-# In[4]:
+# In[40]:
 
 
 def remove_stopwords(text):
@@ -98,7 +101,7 @@ def preprocessing(text):
     return text
 
 
-# In[5]:
+# In[41]:
 
 
 data['tweet'].apply(preprocessing).to_csv('preprocessing_tweet.csv')
